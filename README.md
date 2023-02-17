@@ -12,4 +12,15 @@ make
 
 valgrind -v --leak-check=full --track-origins=yes ./so_long_bonus <map.ber>
 
-If you can find the problem, feel free to send me an email for andrecanelaskaldeich@gmail.com!!
+If (you have found the problem)
+
+{
+
+  feel free to let me know by email: andrecanelaskaldeich@gmail.com;
+  
+}
+
+else
+
+  you can also hit me up on slack: acanelas;
+
