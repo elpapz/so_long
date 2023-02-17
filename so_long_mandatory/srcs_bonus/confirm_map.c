@@ -6,7 +6,7 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 05:43:40 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/17 02:06:48 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:22:55 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static void	array_dup(t_game *game, t_dupmap *str)
 		}
 	i++;
 	}
-	str->str[i] = NULL;
 	/*if (!str->str[i])
 	{
 		free_array(str->str);

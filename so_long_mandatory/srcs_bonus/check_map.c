@@ -6,7 +6,7 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:54:53 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/17 02:43:00 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:17:56 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ static int	check_rows(char *filename, t_game *game)
 	if (fd < 0)
 		ft_trouble(game, "failed to read the file at check_rows");
 	temp = get_next_line(fd);
-	if (!temp)
-	{
-		free(temp);
-		ft_trouble(game, "file empty");
-	}
 	while (temp)
 	{
 		game->map.rows++;
@@ -52,7 +47,7 @@ static void	trim_lines(char *filename, t_game *game)
 		game->map.map[i] = ft_strtrim(temp, "\n");
 		free(temp);
 		if (!game->map.map[i])
-			ft_trouble(game, "failed malloc at ft_strtrim");
+			ft_trouble(game, "failed malloc at trim_lines");
 	}
 	game->map.map[i] = NULL;
 	close(fd);
