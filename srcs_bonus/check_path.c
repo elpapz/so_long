@@ -6,12 +6,13 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:41:42 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/16 22:38:49 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:19:58 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long_bonus.h"
 
+/*
 static char	**array_dup(t_game *game)
 {
 	int		i;
@@ -35,7 +36,7 @@ static char	**array_dup(t_game *game)
 	{
 		free_array(str);
 		ft_trouble(game, "fuck you hoe bitch\n");
-	}*/
+	
 	return (str);
 }
 
@@ -77,3 +78,4 @@ void	check_path(t_game *game)
 	}
 	free_array(andre);
 }
+*/

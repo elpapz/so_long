@@ -6,7 +6,7 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 05:43:40 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/16 20:48:24 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:22:55 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	check_entities(t_game *game)
 	}
 }
 
-/*
+
 static void	array_dup(t_game *game, t_dupmap *str)
 {
 	int		i;
@@ -84,11 +84,11 @@ static void	array_dup(t_game *game, t_dupmap *str)
 		}
 	i++;
 	}
-	if (!str->str[i])
+	/*if (!str->str[i])
 	{
 		free_array(str->str);
 		ft_trouble(game, "fuck you hoe bitch\n");
-	}
+	}*/
 
 }
 
@@ -117,7 +117,7 @@ static int	flood_fill(t_map *map, int x, int y, char **str)
 		return (1);
 	return (0);
 }
-*/
+
 
 void	confirm_map(t_game *game)
 {
@@ -131,13 +131,13 @@ void	confirm_map(t_game *game)
 	ft_printf("coins : %d\n exit: %d\n player: %d\n", game->map.coins, game->map.exit, game->map.player);
 	if (entities_number(game) == 0)
 		ft_trouble(game, "Wrong quantity of entities");
-	check_path(game);
-	/*array_dup(game, &game->dupmap);
+	//check_path(game);
+	array_dup(game, &game->dupmap);
 	if (flood_fill(&game->map, game->map.player_x,
 			game->map.player_y, game->dupmap.str) == 0)
 	{
 		free_array(game->dupmap.str);
 		ft_trouble(game, "error on flood fill");
 	}
-	free_array(game->dupmap.str);*/
+	free_array(game->dupmap.str);
 }
