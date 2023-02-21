@@ -2,5 +2,9 @@
 
 2D simple game using minilibx
 
-Not done yet, be pacient :)
+NORMINETTE OK
+
+VALGRIND OK
+
+MISSING ONE OF THE BONUSES, NO ENEMIES YET... 
 
