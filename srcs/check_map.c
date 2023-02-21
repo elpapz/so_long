@@ -6,11 +6,11 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:54:53 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 02:29:10 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:01:14 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include "../so_long.h"
 
 static int	check_rows(char *filename, t_game *game)
 {
@@ -19,7 +19,7 @@ static int	check_rows(char *filename, t_game *game)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		ft_trouble(game, "failed to read the file at check_rows");
+		ft_trouble(game, "READ FAILED:(\n");
 	temp = get_next_line(fd);
 	if (!temp)
 	{

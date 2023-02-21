@@ -6,32 +6,24 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 06:41:40 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 03:55:41 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/21 03:57:43 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include "../so_long.h"
 
 static void	kill_animations(t_game *game)
 {
 	if (game->animation.collectible)
 		mlx_destroy_image(game->mlx_ptr, game->animation.collectible);
-	if (game->animation.player1)
-		mlx_destroy_image(game->mlx_ptr, game->animation.player1);
-	if (game->animation.player1)
-		mlx_destroy_image(game->mlx_ptr, game->animation.player2);
+	if (game->animation.player)
+		mlx_destroy_image(game->mlx_ptr, game->animation.player);
 	if (game->animation.floor)
 		mlx_destroy_image(game->mlx_ptr, game->animation.floor);
 	if (game->animation.wall)
 		mlx_destroy_image(game->mlx_ptr, game->animation.wall);
-	if (game->animation.exit1)
-		mlx_destroy_image(game->mlx_ptr, game->animation.exit1);
-	if (game->animation.exit2)
-		mlx_destroy_image(game->mlx_ptr, game->animation.exit2);
-	if (game->animation.exit3)
-		mlx_destroy_image(game->mlx_ptr, game->animation.exit3);
-	if (game->animation.exit4)
-		mlx_destroy_image(game->mlx_ptr, game->animation.exit4);
+	if (game->animation.exit)
+		mlx_destroy_image(game->mlx_ptr, game->animation.exit);
 }
 
 void	ft_error(t_game *game, char *str)

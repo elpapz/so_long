@@ -6,11 +6,11 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 00:12:01 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 02:42:09 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:11:51 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include "../so_long.h"
 
 void	free_array(char **str)
 {
@@ -25,7 +25,9 @@ void	free_array(char **str)
 		str[i] = NULL;
 		i++;
 	}
-	free(str);
+	if (i != 0)
+		free(str);
+	str = NULL;
 }
 
 void	ft_trouble(t_game *game, char *str)

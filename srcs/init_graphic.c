@@ -6,27 +6,19 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 06:17:22 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 03:53:50 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 05:07:44 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include "../so_long.h"
 
 void	check_xpm(t_game *game)
 {
 	if (!game->animation.collectible)
 		ft_error(game, ERRORXPM);
-	if (!game->animation.exit1)
+	if (!game->animation.exit)
 		ft_error(game, ERRORXPM);
-	if (!game->animation.exit2)
-		ft_error(game, ERRORXPM);
-	if (!game->animation.exit3)
-		ft_error(game, ERRORXPM);
-	if (!game->animation.exit4)
-		ft_error(game, ERRORXPM);
-	if (!game->animation.player1)
-		ft_error(game, ERRORXPM);
-	if (!game->animation.player2)
+	if (!game->animation.player)
 		ft_error(game, ERRORXPM);
 	if (!game->animation.wall)
 		ft_error(game, ERRORXPM);
@@ -39,17 +31,9 @@ static void	xmp_to_image(t_game *game)
 	int	img_size;
 
 	img_size = IMG_SIZE;
-	game->animation.exit1 = mlx_xpm_file_to_image(game->mlx_ptr, EXIT_IMG1,
+	game->animation.exit = mlx_xpm_file_to_image(game->mlx_ptr, EXIT_IMG,
 			&img_size, &img_size);
-	game->animation.exit2 = mlx_xpm_file_to_image(game->mlx_ptr, EXIT_IMG2,
-			&img_size, &img_size);
-	game->animation.exit3 = mlx_xpm_file_to_image(game->mlx_ptr, EXIT_IMG3,
-			&img_size, &img_size);
-	game->animation.exit4 = mlx_xpm_file_to_image(game->mlx_ptr, EXIT_IMG4,
-			&img_size, &img_size);
-	game->animation.player1 = mlx_xpm_file_to_image(game->mlx_ptr, PLAYER_IMG1,
-			&img_size, &img_size);
-	game->animation.player2 = mlx_xpm_file_to_image(game->mlx_ptr, PLAYER_IMG2,
+	game->animation.player = mlx_xpm_file_to_image(game->mlx_ptr, PLAYER_IMG,
 			&img_size, &img_size);
 	game->animation.wall = mlx_xpm_file_to_image(game->mlx_ptr, WALL_IMG,
 			&img_size, &img_size);
@@ -79,13 +63,13 @@ void	creat_map_image(t_game *game)
 					game->animation.collectible, IMG_SIZE * x, IMG_SIZE * y);
 			else if (game->map.map[y][x] == EXIT)
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-					game->animation.exit1, IMG_SIZE * x, IMG_SIZE * y);
+					game->animation.exit, IMG_SIZE * x, IMG_SIZE * y);
 			else
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 					game->animation.floor, IMG_SIZE * x, IMG_SIZE * y);
 		}
 	}
-	put_player1(game);
+	put_player(game);
 }
 
 void	init_graphic(t_game *game)

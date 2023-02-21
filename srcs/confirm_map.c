@@ -6,11 +6,11 @@
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 05:43:40 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 03:48:44 by acanelas         ###   ########.fr       */
+/*   Updated: 2023/02/17 06:03:51 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include "../so_long.h"
 
 static int	check_perimeter(t_game *game)
 {
@@ -47,7 +47,7 @@ static void	check_entities(t_game *game)
 		while (game->map.columns > ++x)
 		{
 			if (char_search(ENTITIES, game->map.map[y][x]) == 0)
-				ft_trouble(game, "ENTITIES wrong at char_search");
+				ft_trouble(game, ERRORENTITIES);
 			if (game->map.map[y][x] == COIN)
 				game->map.coins++;
 			else if (game->map.map[y][x] == EXIT)
@@ -69,14 +69,14 @@ static void	array_dup(t_game *game, t_dupmap *str)
 	i = 0;
 	str->str = malloc((game->map.rows + 1) * sizeof(char *));
 	if (!str->str)
-		ft_trouble(game, "malloc error at **str");
+		ft_trouble(game, ERRORMALLOC);
 	while (game->map.rows > i)
 	{
 		str->str[i] = ft_strdup(game->map.map[i]);
 		if (!str->str[i])
 		{
 			free_array(str->str);
-			ft_trouble(game, "malloc error while strduping");
+			ft_trouble(game, ERRORMALLOC);
 		}
 	i++;
 	}
@@ -95,8 +95,6 @@ static int	flood_fill(t_map *map, int x, int y, char **str)
 	else if (str[y][x] == EXIT)
 	{
 		exit = 1;
-		map->exit_y = y;
-		map->exit_x = x;
 	}
 	str[y][x] = WALL;
 	flood_fill(map, x + 1, y, str);
@@ -111,16 +109,16 @@ static int	flood_fill(t_map *map, int x, int y, char **str)
 void	confirm_map(t_game *game)
 {	
 	if (check_perimeter(game) == 0)
-		ft_trouble(game, "Perimeter is wrong");
+		ft_trouble(game, ERRORMAP);
 	check_entities(game);
 	if (entities_number(game) == 0)
-		ft_trouble(game, "Wrong quantity of entities");
+		ft_trouble(game, ERRORENTITIES);
 	array_dup(game, &game->dupmap);
 	if (flood_fill(&game->map, game->map.player_x,
 			game->map.player_y, game->dupmap.str) == 0)
 	{
 		free_array(game->dupmap.str);
-		ft_trouble(game, "error on flood fill");
+		ft_trouble(game, ERRORMAP);
 	}
 	free_array(game->dupmap.str);
 }

@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanelas <acanelas@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 04:03:54 by acanelas          #+#    #+#             */
-/*   Updated: 2023/02/21 03:14:48 by acanelas         ###   ########.fr       */
+/*   Created: 2023/02/17 03:28:02 by acanelas          #+#    #+#             */
+/*   Updated: 2023/02/21 02:18:54 by acanelas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_BONUS_H
-# define SO_LONG_BONUS_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "./libft/libft.h"
 # include "./minilibx/mlx.h"
 
 # define IMG_SIZE 32
 
-# define ERRORMAP "Map is BAD:(\n"
-# define ERRORMALLOC "Malloc is BAD :(\n"
-# define ERRORDEST "Delete process not working :(\n"
-# define ERRORENTITIES "Entities are BAD :(\n"
-# define ERRORXPM "XPM conversion is BAD :(\n"
-
 # define SPACE '0'
 # define WALL '1'
 # define EXIT 'E'
 # define PLAYER 'P'
 # define COIN 'C'
+
+# define ERRORMAP "Map is BAD:(\n"
+# define ERRORMALLOC "Malloc is BAD :(\n"
+# define ERRORDEST "Delete process not working :(\n"
+# define ERRORENTITIES "Entities are BAD :(\n"
+# define ERRORXPM "XPM conversion is BAD :(\n"
 
 # define ENTITIES "01EPC"
 
@@ -47,12 +47,8 @@
 # define FLOOR_IMG "./img/floor.xpm"
 # define WALL_IMG "./img/wall.xpm"
 # define COIN_IMG "./img/coin.xpm"
-# define PLAYER_IMG1 "./img/player.xpm"
-# define PLAYER_IMG2 "./img/player2.xpm"
-# define EXIT_IMG1 "./img/finish.xpm"
-# define EXIT_IMG2 "./img/finish2.xpm"
-# define EXIT_IMG3 "./img/finish3.xpm"
-# define EXIT_IMG4 "./img/finish4.xpm"
+# define PLAYER_IMG "./img/player.xpm"
+# define EXIT_IMG "./img/finish.xpm"
 
 typedef struct s_dupmap
 {
@@ -69,21 +65,15 @@ typedef struct s_map
 	int		player;
 	int		player_x;
 	int		player_y;
-	int		exit_x;
-	int		exit_y;
 }			t_map;
 
 typedef struct s_animation
 {
 	void	*wall;
 	void	*floor;
-	void	*player1;
-	void	*player2;
+	void	*player;
 	void	*collectible;
-	void	*exit1;
-	void	*exit2;
-	void	*exit3;
-	void	*exit4;
+	void	*exit;
 }			t_animation;
 
 typedef struct s_game
@@ -124,10 +114,8 @@ void	left_sprites(t_game *game);
 void	move_right(t_game *game);
 void	right_sprites(t_game *game);
 void	check_status(t_game *game);
-void	put_player1(t_game *game);
-void	put_player2(t_game *game);
+void	put_player(t_game *game);
 void	print_floor(t_game *game);
 void	print_moves(t_game *game);
-void	exit_animation(t_game *game);
 
 #endif
